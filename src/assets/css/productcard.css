@@ -1,0 +1,90 @@
+.product-card-container{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    padding-inline: 8px;
+    padding-block: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.image-section{
+    position: relative;
+}
+
+.card-image{
+ width: 300px;
+ height: 200px;
+}
+
+.card-image img{
+    object-fit: cover;
+    width: 300px;
+    height: 203px;
+}
+
+.chip{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: white;
+    padding-inline: 8px;
+    padding-block: 4px;
+    z-index: 100;
+    border-radius: 16px;
+    font-size: 12px;
+}
+
+.image-section .icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 16px;
+    color:white;
+    width: 28px;
+    height: 28px;
+}
+
+.image-section .label{
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: white;
+    font-size: 24px;
+}
+
+.details-sections{
+    display: flex;
+    flex-direction: column;
+    padding-block: 8px;
+    gap: 8px;
+
+}
+
+.details-item{
+    display: flex;
+    gap: 4px;
+}
+
+.details-item .icon {
+    height: 22px;
+    width: 22px;
+    min-width: 22px;
+    color: #EB455F;
+}
+
+.price-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.price-label{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.price-tag{
+    font-size: 18px;
+    font-weight: 600;
+}
