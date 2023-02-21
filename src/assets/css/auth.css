@@ -4,11 +4,10 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
- 
 }
 
 .card {
-  background-color: #DFFFD8;
+  background-color: #dfffd8;
   /* min-height: 500px; */
   width: 350px;
   border-radius: 32px;
@@ -20,7 +19,7 @@
   gap: 32px;
 }
 
-.logo{
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,17 +33,17 @@
   gap: 16px;
 }
 
-.button-section{
+.button-section {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.submit-button{
+.submit-button {
   padding-inline: 32px;
   padding-block: 18px;
-  background-color: #0F6292;
-  border-radius:18px;
+  background-color: #0f6292;
+  border-radius: 18px;
   border: none;
   font-size: 18px;
   color: white;
@@ -52,25 +51,24 @@
   cursor: pointer;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.link-section{
+.link-section {
   display: flex;
   justify-content: space-between;
-
 }
-.link-section button{
+.link-section button {
   border: none;
   background: none;
   font-size: 14px;
   cursor: pointer;
 }
 
-.comment-section{
+.comment-section {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.comment-section textarea{
+.comment-section textarea {
   border: none;
   outline: none;
   min-height: 72px;
@@ -79,29 +77,29 @@
   padding-inline: 8px;
 }
 
-.comment-section span{
+.comment-section span {
   position: absolute;
   top: 8px;
   left: 8px;
   font-weight: 600;
 }
 
-.gender-section{
+.gender-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding-inline: 8px;
   padding-block: 8px;
   font-weight: 600;
   border-radius: 12px;
 }
 
-.radio-group{
+.radio-group {
   display: flex;
-  gap:8px;
+  gap: 8px;
 }
-.radio-button{
+.radio-button {
   display: flex;
   gap: 2px;
 }

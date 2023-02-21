@@ -4,19 +4,34 @@ import { LocationIcon } from "../../../assets/icon/location";
 import { SquareIcon } from "../../../assets/icon/square";
 import "./../../../assets/css/productcard.css";
 
-export const ProductCard = () => {
+export interface ProductCardProps {
+  data: {
+    image: string;
+    title: string;
+    price: string;
+    tag: string;
+    address: string;
+    beds: string;
+    possession: string;
+    measure: string;
+  };
+}
+
+export const ProductCard = (props: ProductCardProps) => {
+  const { title, beds, address, image, price, tag, measure, possession } =
+    props.data;
   return (
     <div className="product-card-container">
       <div className="image-section">
         <div className="chip">
-          <span>Aprtments</span>
+          <span>{tag}</span>
         </div>
         <div className="icon">
           <FavoriteIcon stroke="currentColor" strokeWidth={2} />
         </div>
-        <div className="label">TARC Tirupundra</div>
+        <div className="label">{title}</div>
         <div className="card-image">
-          <img src="https://picsum.photos/id/237/200/300" alt="test" />
+          <img src={image} alt="test" />
         </div>
       </div>
       <div className="details-sections">
@@ -24,27 +39,27 @@ export const ProductCard = () => {
           <div className="icon">
             <LocationIcon />
           </div>
-          <span>Bijwasan Road near St Froebel Senior Secondery s...</span>
+          <span>{address}</span>
         </div>
         <div className="details-item">
           <div className="icon">
             <SquareIcon />
           </div>
-          <span>2,2800 sqft - 3,115 sqft</span>
+          <span>{measure}</span>
         </div>
         <div className="details-item">
           <div className="icon">
             <BedIcon />
           </div>
-          <span>3,4</span>
+          <span>{beds}</span>
         </div>
         <div className="details-item">
-          <span>Possession: Aug 2025</span>
+          <span>{`Possession: ${possession}`}</span>
         </div>
       </div>
       <div className="price-section">
         <div className="price-label">Starting Price</div>
-        <div className="price-tag">INR 3.97 Cr</div>
+        <div className="price-tag">{`INR ${price} Cr`}</div>
       </div>
     </div>
   );

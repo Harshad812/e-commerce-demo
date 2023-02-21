@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 400px;
+}
+
+.box {
+  margin: 0 12px;
+  display: inline-block;
+}
+
+.box-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding-block: 12px;
+}
+
+.prev-button {
+  color: white;
+}
+
+.next-button {
+  color: white;
+}
