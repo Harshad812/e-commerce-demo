@@ -1,8 +1,10 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import "../../../assets/css/auth.css";
 import { EmailIcon } from "../../../assets/icon/email";
 import { LockIcon } from "../../../assets/icon/lock";
 import { Input } from "../../../components";
+import { RoutesMapping } from "../../../routes";
 
 interface UserDetailPayload {
   name: string;
@@ -15,6 +17,7 @@ interface UserDetailPayload {
 }
 
 export const Signup = () => {
+  const navigate = useNavigate();
   const initialValues: UserDetailPayload = {
     name: "",
     email: "",
@@ -27,6 +30,7 @@ export const Signup = () => {
 
   const handleSubmit = (value: any) => {
     console.log("value", value);
+    navigate(RoutesMapping.Signin);
   };
 
   const formik = useFormik({

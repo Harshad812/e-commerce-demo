@@ -4,7 +4,7 @@ import "./../../../assets/css/select.css";
 interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
   label?: ReactNode;
   icon?: ReactNode;
-  options: ReactNode[];
+  options: string[];
 }
 
 export const Select = (props: SelectProps) => {
@@ -12,8 +12,10 @@ export const Select = (props: SelectProps) => {
   return (
     <select {...rest}>
       <option>{label}</option>
-      {options.map((option) => (
-        <option>{option}</option>
+      {options.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
       ))}
     </select>
   );

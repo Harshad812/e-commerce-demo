@@ -3,8 +3,11 @@ import "./../../assets/css/home.css";
 import HomeImage from "./../../assets/images/home.jpg";
 import { Input, Select } from "../../components";
 import { Search } from "tabler-icons-react";
+import { RoutesMapping } from "../../routes";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="home-container">
       <div className="filter-section">
@@ -15,7 +18,9 @@ export const Home = () => {
             <Select options={["one", "two", "three"]} label="select" />
             <Select options={["one", "two", "three"]} label="select" />
             <Select options={["one", "two", "three"]} label="select" />
-            <button>Search Properties</button>
+            <button onClick={() => navigate(RoutesMapping.Properties)}>
+              Search Properties
+            </button>
           </div>
         </div>
         <img src={HomeImage} alt="home" />
