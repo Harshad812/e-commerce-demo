@@ -3,10 +3,10 @@ import gsap, { Power3, TweenLite } from "gsap";
 import React, { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "tabler-icons-react";
 import { ProductCard, ProductCardProps } from "../../../components";
-import { popertyData } from "../utils/propertyData";
+import { propertyData } from "../utils/propertyData";
 import "./styles.css";
 gsap.registerPlugin(TweenLite);
-const data = popertyData;
+const data = propertyData;
 
 const Box = ({ data }: ProductCardProps) => (
   <div className="box">

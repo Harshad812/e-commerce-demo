@@ -14,11 +14,12 @@ export interface ProductCardProps {
     beds: string;
     possession: string;
     measure: string;
+    city: string;
   };
 }
 
 export const ProductCard = (props: ProductCardProps) => {
-  const { title, beds, address, image, price, tag, measure, possession } =
+  const { title, beds, address, image, price, tag, measure, possession, city } =
     props.data;
   return (
     <div className="product-card-container">
@@ -39,7 +40,7 @@ export const ProductCard = (props: ProductCardProps) => {
           <div className="icon">
             <LocationIcon />
           </div>
-          <span>{address}</span>
+          <span>{`${address}, ${city}`}</span>
         </div>
         <div className="details-item">
           <div className="icon">

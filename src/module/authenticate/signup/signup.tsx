@@ -1,8 +1,9 @@
 import { useFormik } from "formik";
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { DeviceMobile, Lock, Mail, Sitemap, User } from "tabler-icons-react";
 import "../../../assets/css/auth.css";
-import { EmailIcon } from "../../../assets/icon/email";
-import { LockIcon } from "../../../assets/icon/lock";
+
 import { Input } from "../../../components";
 import { RoutesMapping } from "../../../routes";
 
@@ -18,6 +19,7 @@ interface UserDetailPayload {
 
 export const Signup = () => {
   const navigate = useNavigate();
+
   const initialValues: UserDetailPayload = {
     name: "",
     email: "",
@@ -28,15 +30,43 @@ export const Signup = () => {
     password: "",
   };
 
-  const handleSubmit = (value: any) => {
-    console.log("value", value);
+  const handleSubmit = (value: UserDetailPayload) => {
+    if (value !== initialValues) {
+      localStorage.setItem("UserDetails", JSON.stringify(value));
+      navigate(RoutesMapping.Signin);
+    }
     navigate(RoutesMapping.Signin);
   };
 
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit: (value: any) => handleSubmit(value),
+    validate: (values: UserDetailPayload) => {
+      const errors: Partial<UserDetailPayload> = {};
+
+      if (!values.name) errors.name = "Please Enter Name";
+      if (!values.website) errors.website = "Please Enter Website";
+      if (!values.comment) errors.comment = "Please Enter Comment";
+      if (!values.mobile) {
+        errors.mobile = "Please Enter Mobile";
+      } else if (values.mobile.length < 10) {
+        errors.mobile = "Please Enter Valid Mobile";
+      }
+
+      if (!values.password) errors.password = "Please Enter Password";
+
+      if (!values.email) {
+        errors.email = "Required";
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
+      }
+      return errors;
+    },
   });
+
+  const error = useMemo(() => formik.errors, [formik.errors]);
 
   return (
     <div className="auth-container">
@@ -50,44 +80,49 @@ export const Signup = () => {
             <Input
               placeholder="Enter Name"
               label={"Name"}
-              icon={<EmailIcon />}
+              icon={<User />}
               value={formik.values.name}
               onChange={formik.handleChange}
               type="name"
               name="name"
+              error={error.name}
             />
             <Input
               placeholder="Enter Email"
               label={"Email"}
-              icon={<EmailIcon />}
+              icon={<Mail />}
               value={formik.values.email}
               onChange={formik.handleChange}
               type="email"
               name="email"
+              error={error.email}
             />
             <Input
               placeholder="*********"
               name="password"
               label={"Password"}
-              icon={<LockIcon />}
+              icon={<Lock />}
               value={formik.values.password}
               onChange={formik.handleChange}
+              error={error.password}
             />
             <Input
               placeholder="Enter Link"
               name="website"
               label={"Website"}
-              icon={<EmailIcon />}
+              icon={<Sitemap />}
               value={formik.values.website}
               onChange={formik.handleChange}
+              error={error.website}
             />
             <Input
               placeholder="Enter Mobile"
               name="mobile"
               label={"Mobile"}
-              icon={<LockIcon />}
+              icon={<DeviceMobile />}
               value={formik.values.mobile}
               onChange={formik.handleChange}
+              error={error.mobile}
             />
             <div className="comment-section ">
               <span>Comment</span>

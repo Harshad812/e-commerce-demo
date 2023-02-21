@@ -4,7 +4,7 @@ import "./../../../assets/css/select.css";
 interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
   label?: ReactNode;
   icon?: ReactNode;
-  options: string[];
+  options: string[] | number[];
 }
 
 export const Select = (props: SelectProps) => {
