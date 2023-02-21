@@ -35,7 +35,6 @@ export const Signup = () => {
       localStorage.setItem("UserDetails", JSON.stringify(value));
       navigate(RoutesMapping.Signin);
     }
-    navigate(RoutesMapping.Signin);
   };
 
   const formik = useFormik({
@@ -164,7 +163,9 @@ export const Signup = () => {
                 Signup
               </button>
               <div className="link-section">
-                <button>Signin</button>
+                <button onClick={() => navigate(RoutesMapping.Signin)}>
+                  Signin
+                </button>
                 <button>Forgate Password</button>
               </div>
             </div>

@@ -51,6 +51,10 @@
   cursor: pointer;
 }
 
+.filter-area button:hover {
+  background-color: #e96479;
+}
+
 .filter-form {
   display: flex;
   gap: 8px;

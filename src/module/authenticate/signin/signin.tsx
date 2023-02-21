@@ -96,7 +96,9 @@ export const Signin = () => {
                 Signin
               </button>
               <div className="link-section">
-                <button>Signin</button>
+                <button onClick={() => navigate(RoutesMapping.Signup)}>
+                  SignUp
+                </button>
                 <button>Forgate Password</button>
               </div>
             </div>
